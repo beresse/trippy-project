@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./Components/NavBar"
-import getHomeData from "./Utils/Api"
+import NavBar from "./components/NavBar"
+import getHomeData from "./utils/Api"
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,8 +27,7 @@ export class App extends React.Component {
         <NavBar /> 
         
       
-     
-    </> 
+c'est pas normal    </> 
     );
   }
 }

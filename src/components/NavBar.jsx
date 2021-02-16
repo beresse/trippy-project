@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
-import Home from "./Home";
+import Home from "../view/Home";
 import CityCard from "./CityCard";
 import HotelCard from "./HotelCard";
 import HotelMap from "./HotelMap";
