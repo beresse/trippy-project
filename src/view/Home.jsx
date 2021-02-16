@@ -24,7 +24,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container d-flex flex-column justify-content-center'>
-        <h1 className='text-center tabTitle'>Home</h1>
+        <h1 className='text-center tabTitle'>
+          Let's discover the world together
+        </h1>
         <div className='row'>
           {this.state.cities.map((city) => {
             return (
