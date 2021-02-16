@@ -1,31 +1,31 @@
-import React from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+    import React from "react";
+    import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
-class Hotels extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        nimportequoi: [],
-      };
-    }
-  
-  
-    componentDidMount() {
-     
-    }
-  
-    render() {
-      return (
-        <div>
-          <h1>Hotels </h1>
-  
-          
-              
+    class Hotels extends React.Component {
+        constructor() {
+        super();
+        this.state = {
+            nimportequoi: [],
+        };
+        }
+    
+    
+        componentDidMount() {
         
-        </div>
-          
-      
-      )}
-  }
-  
-  export default Hotels;
+        }
+    
+        render() {
+        return (
+            <div>
+            <h1>Hotels </h1>
+    
+            
+            
+            
+            </div>
+            
+        
+        )}
+    }
+    
+    export default Hotels;

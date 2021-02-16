@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/NavBar.jsx";
-import getHomeData from "./utils/Api";
-
+import NavBar from "./Components/NavBar"
+import getHomeData from "./Utils/Api"
 export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities: [],
+      cities: [], 
+      
     };
   }
 
@@ -23,9 +23,12 @@ export class App extends React.Component {
 
   render() {
     return (
-      <>
-        <NavBar />
-      </>
+      <> 
+        <NavBar /> 
+        
+      
+     
+    </> 
     );
   }
 }
