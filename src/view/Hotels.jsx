@@ -2,20 +2,26 @@ import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 class Hotels extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      hotels: [],
+      cities: [],
     };
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3002/api/hotels/city/${this.props.cities}`)
+    console.log("hotels");
+    console.log("hotels", this.props.match.params.city);
+    let url = `http://localhost:3002/api/hotels/city/${this.props.match.params.city}`;
+    console.log(url);
+    fetch(
+      `http://localhost:3002/api/hotels/city/${this.props.match.params.city}`
+    )
       .then((response) => response.json())
-      .then((response) => {
-        console.log("cities", this.props.cities);
+      .then((commodities) => {
+        console.log("commodities", commodities);
         this.setState({
-          cities: response.cities,
+          cities: commodities.results,
         });
       })
       .catch((error) => console.error(error));

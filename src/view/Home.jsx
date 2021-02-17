@@ -32,7 +32,7 @@ class Home extends React.Component {
             this.state.cities.map((city) => {
               return (
                 <div className='cityCard col-6 justify-content-center'>
-                  <Link>
+                  <Link to={`/hotels/${city.slug}`}>
                     <CityCard
                       cities={city.name}
                       image={this.state.img + city.source}
