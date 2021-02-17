@@ -1,11 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import HotelCard from "../components/HotelCard";
 
 class Hotels extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       cities: [],
+      hotelDetails: [],
+      img: "http://localhost:3002",
     };
   }
 
@@ -18,10 +21,10 @@ class Hotels extends React.Component {
       `http://localhost:3002/api/hotels/city/${this.props.match.params.city}`
     )
       .then((response) => response.json())
-      .then((commodities) => {
-        console.log("commodities", commodities);
+      .then((results) => {
+        console.log("results", results);
         this.setState({
-          cities: commodities.results,
+          hotelDetails: results.results,
         });
       })
       .catch((error) => console.error(error));
@@ -29,8 +32,11 @@ class Hotels extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hotels</h1>
+      <div className='container d-flex flex-column justify-content-center'>
+        <h1 className='text-center tabTitle'>City details</h1>
+        {this.state.hotelDetails.map((hotel) => {
+          return <HotelCard name={hotel.name} />;
+        })}
       </div>
     );
   }
