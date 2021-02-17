@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import CityCard from "../components/CityCard";
 import getHomeData from "../utils/Api";
 
 class Home extends React.Component {
@@ -7,6 +8,7 @@ class Home extends React.Component {
     super();
     this.state = {
       cities: [],
+      img: "http://localhost:3002",
     };
   }
 
@@ -24,25 +26,26 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container d-flex flex-column justify-content-center'>
-        <h1 className='text-center tabTitle'>
-          Let's discover the world together
-        </h1>
+        <h1 className='text-center tabTitle'>Découvrir le monde</h1>
         <div className='row'>
-          {this.state.cities.map((city) => {
-            return (
-              <div className='filmCard mb-3'>
-                <img
-                  src={`http://localhost:3002/img/${city.slug}.png`}
-                  className='card-img-top'
-                  alt={`${city.name}`}
-                />
-                <div className='card-body'>
-                  <h4 className='card-title'>{city.name}</h4>
+          {this.state.cities.length > 0 &&
+            this.state.cities.map((city) => {
+              return (
+                <div className='cityCard col-6 justify-content-center'>
+                  <Link>
+                    <CityCard
+                      cities={city.name}
+                      image={this.state.img + city.source}
+                      alt={`${city.name}`}
+                    />
+                  </Link>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
+        {this.state.cities.length === 0 && (
+          <h2 className='text-center'>Loading, please wait!</h2>
+        )}
       </div>
     );
   }

@@ -21,7 +21,7 @@ class NavBar extends React.Component {
               className='d-inline-block align-top mr-3'
             />
             <Link className='navbar-brand' to='/'>
-              Home
+              Trippy
             </Link>
             <button
               className='navbar-toggler'
