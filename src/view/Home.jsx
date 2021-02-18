@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import CityCard from "../components/CityCard";
-import getHomeData from "../utils/Api";
+import getHomeData from "../utils/Api.js";
 
 class Home extends React.Component {
   constructor() {
@@ -29,11 +29,11 @@ class Home extends React.Component {
         <h1 className='text-center tabTitle'>Découvrir le monde</h1>
         <div className='row'>
           {this.state.cities.length > 0 &&
-            this.state.cities.map((city) => {
+            this.state.cities.map((city,  index) => {
               return (
                 <div className='cityCard col-6 justify-content-center'>
                   <Link to={`/hotels/${city.slug}`}>
-                    <CityCard
+                    <CityCard key={index}
                       cities={city.name}
                       image={this.state.img + city.source}
                       alt={`${city.name}`}
@@ -44,7 +44,7 @@ class Home extends React.Component {
             })}
         </div>
         {this.state.cities.length === 0 && (
-          <h2 className='text-center'>Loading, please wait!</h2>
+          <h2 className='text-center'>OH no! Loading, please wait!</h2>
         )}
       </div>
     );
